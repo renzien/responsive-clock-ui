@@ -14,3 +14,36 @@ const clock = () => {
 }
 
 setInterval(clock, 1000)
+
+const textHour = document.getElementById('text-hour'),
+      textMinutes = document.getElementById('text-minutes'),
+      textAmPm = document.getElementById('text-ampm'),
+      dateDay = document.getElementById('date-day'),
+      dateMonth = document.getElementById('date-month'),
+      dateYear = dcoument.getElementById('date-year')
+
+const clockText = () => {
+    let date = new Date()
+
+    let hh = date.getHours(),
+        ampm,
+        mm = date.getMinutes(),
+        day = date.getDate(),
+        month = date.getMonth(),
+        year = date.getFullYear()
+
+    if (hh >= 12){
+        hh = hh - 12
+        ampm = 'PM'
+    } else {
+        ampm = 'AM'
+    }
+
+    if (hh == 0){hh = 12}
+
+    if (hh < 10){hh = `0${hh}`}
+
+
+    textHour.innerHTML = `${hh}`
+}
+setInterval(clockText, 1000)
